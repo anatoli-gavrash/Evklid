@@ -210,15 +210,20 @@ function accordion() {
     } else if (targetClasses.contains('faq__accordion-title')) {
       targetGrandparentClasses.add('faq__accordion-item--active');
     } else if (targetClasses.contains('faq__accordion-button')) {
-      if (targetGrandparentClasses.contains('faq__accordion-item--active')) {
-        targetGrandparentClasses.remove('faq__accordion-item--active');
-      } else {
-        targetGrandparentClasses.add('faq__accordion-item--active');
-      }
+      targetGrandparentClasses.toggle('faq__accordion-item--active');
     }
   });
 }
 
+function burger() {
+  const burgerButton = document.querySelector('.header__burger-menu-button');
+
+  burgerButton.addEventListener('click', evnt => {
+    evnt.target.classList.toggle('header__burger-menu-button--cross');
+  });
+}
+
+burger();
 search();
 slider();
 stages();
